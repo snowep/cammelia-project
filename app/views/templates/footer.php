@@ -1,3 +1,4 @@
+<?php Flasher::getFlash() ?>
 </div>
 <!-- end container fluid -->
 </div>
@@ -42,6 +43,9 @@
 
 <script src="<?= BASEURL ?>/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?= BASEURL ?>/dist/js/pages/datatable/datatable-basic.init.js"></script>
+
+
+<script src="<?= BASEURL ?>/dist/js/script.js"></script>
 <script>
     $(function() {
         hljs.initHighlightingOnLoad();
