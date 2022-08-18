@@ -15,7 +15,7 @@ class SchoolController extends Controller {
         $data = [
             'title' => 'Detail Sekolah',
             'name' => $this->model('User')->getUser(),
-            'schools' => $this->model('School')->getAllSchoolsByNPSN($npsn)
+            'schools' => $this->model('School')->getSchoolsByNPSN($npsn)
         ];
         $this->view('templates/header', $data);
         $this->view('school/details', $data);
@@ -28,8 +28,37 @@ class SchoolController extends Controller {
             header('Location: ' . BASEURL . '/school');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash(' gagal ', ' ditambahkan ', 'danger');
             header('Location: ' . BASEURL . '/school');
+            exit;
+        }
+    }
+
+    public function delete($npsn) {
+        if ($this->model('School')->deleteSchool($npsn) > 0) {
+            Flasher::setFlash(' berhasil ', ' dihapus ', 'success');
+            header('Location: ' . BASEURL . '/school');
+            exit;
+        } else {
+            Flasher::setFlash(' gagal ', ' dihapus ', 'danger');
+            header('Location: ' . BASEURL . '/school');
+            exit;
+        }
+    }
+
+    public function getEdit() {
+        echo json_encode($this->model('School')->getSchoolsByNPSN($_POST['npsn']));
+    }
+
+    public function edit() {
+        if ($this->model('School')->editSchool($_POST) > 0) {
+            Flasher::setFlash(' berhasil ', ' diubah ', 'success');
+            header('Location: ' . BASEURL . '/school/details/' . $_POST['npsnInputEdit']);
+            exit;
+        } else {
+            Flasher::setFlash(' gagal ', ' diubah ', 'danger');
+            header('Location: ' . BASEURL . '/school/details/' . $_POST['npsnInputEdit']);
+            exit;
         }
     }
 }

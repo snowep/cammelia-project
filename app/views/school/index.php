@@ -18,7 +18,7 @@
             </button>
         </div>
         <div id="addSchool-modal" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header modal-coloored-header bg-info text-white">
                         Tambah Sekolah
@@ -31,8 +31,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="nss">NSS</label>
-                                <input class="form-control" type="text" id="nss" name="nssInput" required="" placeholder="3011xxxxxxxx" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                <label for="nns">NNS</label>
+                                <input class="form-control" type="text" id="nns" name="nnsInput" required="" placeholder="3011xxxxxxxx" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                             </div>
 
                             <div class="mb-3">
@@ -87,5 +87,4 @@
             </div>
         </div>
     </div>
-    <?php Flasher::getFlash() ?>
 </div>
