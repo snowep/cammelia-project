@@ -27,4 +27,11 @@ class School {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function deleteSchool($id) {
+        $this->db->query('DELETE FROM ' . $this->table . ' WHERE npsn = :npsn');
+        $this->db->bind(':npsn', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

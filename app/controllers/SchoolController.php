@@ -30,6 +30,19 @@ class SchoolController extends Controller {
         } else {
             Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/school');
+            exit;
+        }
+    }
+
+    public function delete($npsn) {
+        if ($this->model('School')->deleteSchool($npsn) > 0) {
+            Flasher::setFlash(' berhasil ', ' dihapus ', 'success');
+            header('Location: ' . BASEURL . '/school');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . '/school');
+            exit;
         }
     }
 }

@@ -15,7 +15,8 @@
             <a href="javascript:void(0)" class="btn btn-warning d-flex align-items-center ms-2">
                 <i data-feather="plus" class="feather feather-plus me-2 feather-sm"></i>
                 Ubah
-            </a><a href="javascript:void(0)" class="btn btn-outline-danger d-flex align-items-center ms-2">
+            </a>
+            <a href="<?= BASEURL ?>/school/delete/<?= $data['schools']['npsn'] ?>" class="btn btn-outline-danger d-flex align-items-center ms-2" onclick="return confirm('Yakin?')">
                 <i data-feather="trash-2" class="feather-icon me-2 feather-sm"></i>
                 Hapus
             </a>
