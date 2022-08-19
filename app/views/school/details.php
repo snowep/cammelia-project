@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end">
             <a href="javascript:void(0)" class="btn btn-warning d-flex align-items-center ms-2 modalUbah" data-bs-toggle="modal" data-bs-target="#editSchool-modal" data-npsn="<?= $data['schools']['npsn'] ?>">
-                <i data-feather="plus" class="feather feather-plus me-2 feather-sm"></i>
+                <i data-feather="edit" class="feather feather-plus me-2 feather-sm"></i>
                 Ubah
             </a>
             <a href="<?= BASEURL ?>/school/delete/<?= $data['schools']['npsn'] ?>" class="btn btn-outline-danger d-flex align-items-center ms-2" onclick="return confirm('Yakin?')">

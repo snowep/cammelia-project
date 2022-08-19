@@ -1,8 +1,8 @@
 <?php
 
-class UserController extends Controller {
+class AdminController extends Controller {
     public function __construct() {
-        if ($_SESSION['role'] != 'user') {
+        if ($_SESSION['role'] != 'admin') {
             $this->redirect();
         }
     }
@@ -10,11 +10,11 @@ class UserController extends Controller {
     public function index($name = 'Yeah') {
         $data = [
             'role' => $_SESSION['role'],
-            'info' => $this->model('User')->getUser($_SESSION['username'])
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
         ];
 
         $this->view('templates/header', $data);
-        $this->view('user/index', $data);
+        $this->view('admin/index', $data);
         $this->view('templates/footer');
     }
 }

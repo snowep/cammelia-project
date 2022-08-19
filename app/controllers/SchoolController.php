@@ -3,7 +3,7 @@ class SchoolController extends Controller {
     public function index() {
         $data = [
             'title' => 'Sekolah',
-            'name' => $this->model('User')->getUser(),
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'schools' => $this->model('School')->getAllSchools()
         ];
         $this->view('templates/header', $data);
@@ -14,7 +14,7 @@ class SchoolController extends Controller {
     public function details($npsn) {
         $data = [
             'title' => 'Detail Sekolah',
-            'name' => $this->model('User')->getUser(),
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'schools' => $this->model('School')->getSchoolsByNPSN($npsn)
         ];
         $this->view('templates/header', $data);
