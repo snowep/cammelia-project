@@ -1,19 +1,19 @@
 <?php
 class SchoolController extends Controller {
-    public function index() {
+    public function list() {
         $data = [
-            'title' => 'Sekolah',
+            'title' => 'List of School',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'schools' => $this->model('School')->getAllSchools()
         ];
         $this->view('templates/header', $data);
-        $this->view('school/index', $data);
+        $this->view('school/list', $data);
         $this->view('templates/footer');
     }
 
     public function details($npsn) {
         $data = [
-            'title' => 'Detail Sekolah',
+            'title' => 'School Details',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'schools' => $this->model('School')->getSchoolsByNPSN($npsn)
         ];

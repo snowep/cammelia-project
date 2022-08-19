@@ -49,4 +49,15 @@ class User {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    //delete user
+    public function deleteUser($id) {
+        $this->db->query("DELETE FROM " . $this->table . " WHERE id=:id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+        $this->db->query("DELETE FROM " . $this->table_info . " WHERE user_id=:id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

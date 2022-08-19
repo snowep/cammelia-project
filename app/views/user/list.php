@@ -3,7 +3,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 d-flex align-items-center">
                 <li class="breadcrumb-item">
-                    <a href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/user_list">Data</a>
+                    <a href="<?= BASEURL ?>/user/list">Data</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">User</li>
             </ol>
@@ -23,7 +23,7 @@
                         <table id="zero_config" class="table table-stripped table-bordered no-wrap">
                             <thead>
                                 <tr>
-                                    <th>Nama Sekolah</th>
+                                    <th>Full Name</th>
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>Role</th>
@@ -35,7 +35,7 @@
                                 foreach ($data['users'] as $user) {
                                 ?>
                                     <tr>
-                                        <td><a href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/user_details/<?= $user['id'] ?>"><?= $user['fullname']; ?></a></td>
+                                        <td><a href="<?= BASEURL ?>/user/details/<?= $user['id'] ?>"><?= $user['fullname']; ?></a></td>
                                         <td><?= $user['username'] ?></td>
                                         <td><?= $user['email'] ?></td>
                                         <td><?= ucfirst($user['level']) ?></td>

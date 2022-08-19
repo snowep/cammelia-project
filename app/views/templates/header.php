@@ -16,7 +16,7 @@
 
     <!-- Different Template -->
     <script src="<?= BASEURL ?>/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <title><?= ucfirst($data['info']['level']) ?> | <?= $data['title'] ?></title>
+    <title><?= ucfirst($_SESSION['role']) ?> | <?= $data['title'] ?></title>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
                                             <img src="<?= BASEURL ?>/assets/images/users/profile-pic.jpg" alt="user-profile" width="90" class="rounded-circle">
                                             <div class="ms-4">
                                                 <h4 class="mb-0"><?= $data['info']['fullname'] ?></h4>
-                                                <span class="text-muted"><?= ucfirst($data['info']['level']) ?></span>
+                                                <span class="text-muted"><?= ucfirst($_SESSION['role']) ?></span>
                                                 <p class="text-muted mb-0 mt-1">
                                                     <span class="badge bg-<?= ($data['info']['status'] == 'active') ? 'success' : (($data['info']['status'] == 'pending') ? 'warning' : 'danger') ?>">
                                                         <?= ucfirst($data['info']['status']) ?></span>
@@ -105,15 +105,15 @@
                                                     <i class="feather-icon" data-feather="user"></i>
                                                 </span>
                                                 <div class="w-75 d-inline-block v-middle ps-3 ms-1">
-                                                    <h5 class="message-title mb-0 mt-1 fs-4 font-weight-medium">Profil Saya</h5>
+                                                    <h5 class="message-title mb-0 mt-1 fs-4 font-weight-medium">My Profile</h5>
                                                     <span class="fs-3 text-nowrap d-block time text-truncate fw-normal mt-1 text-muted">
-                                                        Pengaturan Akun
+                                                        Account Settings
                                                     </span>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="mt-4">
-                                            <a href="<?= BASEURL ?>/auth/logout" class="btn btn-danger text-white">Keluar</a>
+                                            <a href="<?= BASEURL ?>/auth/logout" class="btn btn-danger text-white">Logout</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -130,7 +130,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/dashboard" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="<?= BASEURL ?>/user/dashboard" aria-expanded="false">
                                 <i data-feather="pie-chart" class="feather-icon"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
@@ -138,7 +138,7 @@
                         <li class="list-divider"></li>
                         <li class="nav-small-cap">
                             <i class="nav-small-line"></i>
-                            <span class="hide-menu">Administrasi</span>
+                            <span class="hide-menu">Administration</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
@@ -147,17 +147,17 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
                                 <?php
-                                if ($data['info']['level'] == 'admin' || $data['info']['level'] == 'superuser') {
+                                if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'superuser') {
                                 ?>
                                     <li class="sidebar-item">
-                                        <a href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/user_list" class="sidebar-link">
+                                        <a href="<?= BASEURL ?>/user/list" class="sidebar-link">
                                             <span class="hide-menu">User</span>
                                         </a>
                                     </li>
                                 <?php } ?>
                                 <li class="sidebar-item">
-                                    <a href="<?= BASEURL ?>/school" class="sidebar-link">
-                                        <span class="hide-menu">Sekolah</span>
+                                    <a href="<?= BASEURL ?>/school/list" class="sidebar-link">
+                                        <span class="hide-menu">School</span>
                                     </a>
                                 </li>
                             </ul>
