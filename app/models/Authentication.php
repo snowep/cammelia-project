@@ -21,6 +21,7 @@ class Authentication extends Controller {
             Flasher::setFlash('Berhasil ', ' login ', 'success');
             $_SESSION['username'] = $row['username'];
             $_SESSION['role'] = $row['level'];
+            $_SESSION['id'] = $row['id'];
             header('Location: ' . BASEURL . '/' . $row['level'] . '/dashboard');
             exit;
         } else {

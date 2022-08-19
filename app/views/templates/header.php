@@ -16,7 +16,7 @@
 
     <!-- Different Template -->
     <script src="<?= BASEURL ?>/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <title><?= ucfirst($data['role']) ?> | <?= $data['title'] ?></title>
+    <title><?= ucfirst($data['info']['level']) ?> | <?= $data['title'] ?></title>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
                                             <img src="<?= BASEURL ?>/assets/images/users/profile-pic.jpg" alt="user-profile" width="90" class="rounded-circle">
                                             <div class="ms-4">
                                                 <h4 class="mb-0"><?= $data['info']['fullname'] ?></h4>
-                                                <span class="text-muted"><?= ucfirst($data['role']) ?></span>
+                                                <span class="text-muted"><?= ucfirst($data['info']['level']) ?></span>
                                                 <p class="text-muted mb-0 mt-1">
                                                     <span class="badge bg-<?= ($data['info']['status'] == 'active') ? 'success' : (($data['info']['status'] == 'pending') ? 'warning' : 'danger') ?>">
                                                         <?= ucfirst($data['info']['status']) ?></span>
@@ -130,7 +130,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="<?= BASEURL ?>/<?= $_SESSION['role'] ?>/dashboard" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/dashboard" aria-expanded="false">
                                 <i data-feather="pie-chart" class="feather-icon"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
@@ -146,11 +146,15 @@
                                 <span class="hide-menu">Data </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="<?= BASEURL ?>/superuser/user_list" class="sidebar-link">
-                                        <span class="hide-menu">User</span>
-                                    </a>
-                                </li>
+                                <?php
+                                if ($data['info']['level'] == 'admin' || $data['info']['level'] == 'superuser') {
+                                ?>
+                                    <li class="sidebar-item">
+                                        <a href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/user_list" class="sidebar-link">
+                                            <span class="hide-menu">User</span>
+                                        </a>
+                                    </li>
+                                <?php } ?>
                                 <li class="sidebar-item">
                                     <a href="<?= BASEURL ?>/school" class="sidebar-link">
                                         <span class="hide-menu">Sekolah</span>

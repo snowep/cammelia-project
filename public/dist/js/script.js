@@ -38,4 +38,23 @@ $(function () {
 			}
 		});
 	});
+	$(".modalUbahUser").on("click", function () {
+		const id = $(this).data("id");
+
+		$.ajax({
+			url: "http://localhost:8080/cammelia-project/public/admin/user_getEdit",
+			data: { id: id },
+			method: "POST",
+			dataType: "json",
+			success: function (data) {
+				console.log(data);
+				$("#idEdit").val(data.id);
+				$("#namaEdit").val(data.fullname);
+				$("#emailEdit").val(data.email);
+				$("#usernameEdit").val(data.username);
+				$("#roleEdit").val(data.level);
+				$("#statusEdit").val(data.status);
+			}
+		});
+	});
 });

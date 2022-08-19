@@ -21,6 +21,10 @@ class User {
         $this->db->query("SELECT * FROM " . $this->table . " INNER JOIN " . $this->table_info . " ON " . $this->table . ".id = " . $this->table_info . ".user_id");
         return $this->db->resultSet();
     }
+    public function getAllUsersExcSU() {
+        $this->db->query("SELECT * FROM " . $this->table . " INNER JOIN " . $this->table_info . " ON " . $this->table . ".id = " . $this->table_info . ".user_id WHERE NOT level='superuser'");
+        return $this->db->resultSet();
+    }
     //get user by id
     public function getUserById($id) {
         $this->db->query("SELECT * FROM " . $this->table . " INNER JOIN " . $this->table_info . " ON " . $this->table . ".id = " . $this->table_info . ".user_id WHERE id=:id");

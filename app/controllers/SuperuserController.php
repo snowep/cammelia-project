@@ -3,14 +3,17 @@
 class SuperuserController extends Controller {
 
     public function __construct() {
-        if ($_SESSION['role'] != 'superuser') {
+        $data = [
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
+        ];
+        $_SESSION['role'] = $data['info']['level'];
+        if ($data['info']['level'] != 'superuser') {
             $this->redirect();
         }
     }
 
-    public function index($name = 'Yeah') {
+    public function index() {
         $data = [
-            'role' => $_SESSION['role'],
             'title' => 'Dashboard',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
         ];
@@ -22,7 +25,6 @@ class SuperuserController extends Controller {
 
     public function user_list() {
         $data = [
-            'role' => $_SESSION['role'],
             'title' => 'List User',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'users' => $this->model('User')->getAllUsers()
@@ -35,7 +37,6 @@ class SuperuserController extends Controller {
 
     public function user_details($id) {
         $data = [
-            'role' => $_SESSION['role'],
             'title' => 'Detail User',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'users' => $this->model('User')->getUserById($id)

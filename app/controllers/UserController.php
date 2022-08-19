@@ -2,15 +2,18 @@
 
 class UserController extends Controller {
     public function __construct() {
-        if ($_SESSION['role'] != 'user') {
+        $data = [
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
+        ];
+        $_SESSION['role'] = $data['info']['level'];
+        if ($data['info']['level'] != 'user') {
             $this->redirect();
         }
     }
 
-    public function index($name = 'Yeah') {
+    public function index() {
         $data = [
-            'role' => $_SESSION['role'],
-            'info' => $this->model('User')->getUser($_SESSION['username'])
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
         ];
 
         $this->view('templates/header', $data);
