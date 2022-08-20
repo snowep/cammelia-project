@@ -2,6 +2,12 @@
 
 class AuthController extends Controller {
 
+    public function __construct() {
+        if ($this->model('Authentication')->isLoggedIn() == 1) {
+            header('Location: ' . BASEURL . '/user/dashboard');
+        }
+    }
+
     public function index() {
         header('Location: ' . BASEURL . '/auth/login');
     }

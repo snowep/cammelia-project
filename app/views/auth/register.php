@@ -1,7 +1,7 @@
 <div class="auth-box p-4 bg-white rounded">
     <div id="loginForm">
         <div class="logo text-center">
-            <h3 class="font-weight-medium mb-3">Daftar</h3>
+            <h3 class="font-weight-medium mb-3">Sign Up</h3>
         </div>
         <div class="row mt-4">
             <div class="col-12">
@@ -28,12 +28,12 @@
                     </div>
                     <div class="form-group text-center mt-4 mb-3">
                         <div class="col-xs-12">
-                            <button class="btn btn-primary d-block w-100 waves-effect waves-light">Daftar</button>
+                            <button class="btn btn-primary d-block w-100 waves-effect waves-light">Register</button>
                         </div>
                     </div>
                     <div class="form-group mb-0 mt-4">
                         <div class="col-sm-12 justify-content-center d-flex">
-                            <p>Sudah punya akun? <a href="<?= BASEURL ?>/auth/login" class="text-primary font-weight-medium ms-1"> Masuk</a></p>
+                            <p>Already have an account? <a href="<?= BASEURL ?>/auth/login" class="text-primary font-weight-medium ms-1"> Login</a></p>
                         </div>
                     </div>
                 </form>

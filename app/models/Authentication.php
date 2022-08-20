@@ -22,7 +22,7 @@ class Authentication extends Controller {
             $_SESSION['username'] = $row['username'];
             $_SESSION['role'] = $row['level'];
             $_SESSION['id'] = $row['id'];
-            header('Location: ' . BASEURL . '/' . $row['level'] . '/dashboard');
+            header('Location: ' . BASEURL . '/user/dashboard');
             exit;
         } else {
             Flasher::setFlash('Username atau Password salah', '', 'danger');

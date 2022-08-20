@@ -13,7 +13,11 @@ class App {
             if (file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
                 $this->controller = $url[0] . 'Controller';
                 unset($url[0]);
+            } else {
+                $this->controller = 'errorController';
             }
+        } else {
+            echo 'yeah';
         }
         // Require the controller
         require_once '../app/controllers/' . $this->controller . '.php';
@@ -24,6 +28,8 @@ class App {
             if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
                 unset($url[1]);
+            } else {
+                $this->method = 'index';
             }
         }
 
