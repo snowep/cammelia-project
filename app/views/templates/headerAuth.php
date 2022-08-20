@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= BASEURL ?>/dist/css/style.min.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/assets/libs/apexcharts/dist/apexcharts.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
-    <link href="<?= BASEURL ?>/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/flexy-bootstrap/package/assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="<?= BASEURL ?>/dist/css/style.min.css" rel="stylesheet">

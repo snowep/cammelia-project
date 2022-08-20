@@ -35,7 +35,7 @@
                                 foreach ($data['users'] as $user) {
                                 ?>
                                     <tr>
-                                        <td><a href="<?= BASEURL ?>/<?= $data['info']['level'] ?>/user_details/<?= $user['id'] ?>"><?= $user['fullname']; ?></a></td>
+                                        <td><a href="<?= BASEURL ?>/user/details/<?= $user['id'] ?>"><?= $user['fullname']; ?></a></td>
                                         <td><?= $user['username'] ?></td>
                                         <td><?= $user['email'] ?></td>
                                         <td><?= ucfirst($user['level']) ?></td>

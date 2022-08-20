@@ -1,7 +1,7 @@
 <div class="auth-box p-4 bg-white rounded">
     <div id="loginForm">
         <div class="logo">
-            <h3 class="box-title mb-3">Masuk</h3>
+            <h3 class="box-title mb-3">Sign In</h3>
         </div>
         <div class="row">
             <div class="col-12">
@@ -20,19 +20,19 @@
                         <div class="d-flex">
                             <div class="ms-auto">
                                 <a href="<?= BASEURL ?>/auth/reset" class="d-flex align-items-center link font-weight-medium">
-                                    Lupa kata sandi?
+                                    Forgot Password?
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="form-group text-center mt-4 mb-3">
                         <div class="col-xs-12">
-                            <button class="btn btn-primary d-block w-100 waves-effect waves-light">Masuk</button>
+                            <button class="btn btn-primary d-block w-100 waves-effect waves-light">Login</button>
                         </div>
                     </div>
                     <div class="form-group mb-0 mt-4">
                         <div class="col-sm-12 justify-content-center d-flex">
-                            <p>Belum punya akun? <a href="<?= BASEURL ?>/auth/register" class="text-primary font-weight-medium ms-1"> Daftar</a></p>
+                            <p>Doesn't have account yet? <a href="<?= BASEURL ?>/auth/register" class="text-primary font-weight-medium ms-1"> Register</a></p>
                         </div>
                     </div>
                 </form>
