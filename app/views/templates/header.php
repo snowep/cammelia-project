@@ -138,29 +138,29 @@
                         <li class="list-divider"></li>
                         <li class="nav-small-cap">
                             <i class="nav-small-line"></i>
-                            <span class="hide-menu">Administration</span>
+                            <span class="hide-menu">Data</span>
+                        </li>
+                        <?php
+                        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'superuser') {
+                        ?>
+                            <li class="sidebar-item">
+                                <a href="<?= BASEURL ?>/user/list" class="sidebar-link">
+                                    <i data-feather="circle" class="feather-icon"></i>
+                                    <span class="hide-menu">User</span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <li class="sidebar-item">
+                            <a href="<?= BASEURL ?>/school/list" class="sidebar-link">
+                                <i data-feather="triangle" class="feather-icon"></i>
+                                <span class="hide-menu">School</span>
+                            </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-                                <i data-feather="file-text" class="feather-icon"></i>
-                                <span class="hide-menu">Data </span>
+                            <a href="<?= BASEURL ?>/report/list" class="sidebar-link">
+                                <i data-feather="square" class="feather-icon"></i>
+                                <span class="hide-menu">Report</span>
                             </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <?php
-                                if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'superuser') {
-                                ?>
-                                    <li class="sidebar-item">
-                                        <a href="<?= BASEURL ?>/user/list" class="sidebar-link">
-                                            <span class="hide-menu">User</span>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                                <li class="sidebar-item">
-                                    <a href="<?= BASEURL ?>/school/list" class="sidebar-link">
-                                        <span class="hide-menu">School</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </nav>

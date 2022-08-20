@@ -10,8 +10,8 @@ class Controller {
         return new $model;
     }
 
-    public function redirect() {
-        header('Location: ' . BASEURL . '/' . $_SESSION['role'] . '/dashboard');
+    public function redirect($page, $subpage) {
+        header('Location: ' . BASEURL . '/' . $page . '/' . $subpage);
         exit;
     }
 }

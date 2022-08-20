@@ -1,5 +1,15 @@
 <?php
 class SchoolController extends Controller {
+    public function __construct() {
+        if ($this->model('Authentication')->isLoggedIn() == 0) {
+            header('Location: ' . BASEURL . '/auth/login');
+        }
+    }
+
+    public function index() {
+        $this->redirect('school', 'list');
+    }
+
     public function list() {
         $data = [
             'title' => 'List of School',

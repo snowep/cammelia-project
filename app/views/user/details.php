@@ -51,9 +51,9 @@
 
                             <div class="mb-3">
                                 <label for="role">Role</label>
-                                <select name="roleInputEdit" id="roleEdit" class="form-select mr-sm-2">
+                                <select name="roleInputEdit" id="roleEdit" class="form-select mr-sm-2" readonly>
                                     <?php
-                                    $roles = [...($data['info']['level'] == 'superuser') ? ['superuser'] : [''], 'admin', 'user'];
+                                    $roles = [...($data['info']['level'] == 'superuser') ? ['superuser', 'admin', 'user'] : ['admin', 'user']];
                                     foreach ($roles as $role) {
                                         echo '<option value="' . $role . '">' . ucfirst($role) . '</option>';
                                     }
@@ -66,7 +66,7 @@
                                     <label for="status">Status</label>
                                     <select name="statusInputEdit" id="statusEdit" class="form-select mr-sm-2" disabled>
                                         <?php
-                                        $status = ['active', 'pending', 'rejected'];
+                                        $status = ['active', 'pending', 'inactive'];
                                         foreach ($status as $stat) {
                                             echo '<option value="' . $stat . '">' . ucfirst($stat) . '</option>';
                                         }
@@ -79,7 +79,7 @@
                                     <label for="status">Status</label>
                                     <select name="statusInputEdit" id="statusEdit" class="form-select mr-sm-2">
                                         <?php
-                                        $status = ['active', 'pending', 'rejected'];
+                                        $status = ['active', 'pending', 'inactive'];
                                         foreach ($status as $stat) {
                                             echo '<option value="' . $stat . '">' . ucfirst($stat) . '</option>';
                                         }

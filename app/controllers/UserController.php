@@ -2,6 +2,9 @@
 
 class UserController extends Controller {
     public function __construct() {
+        if ($this->model('Authentication')->isLoggedIn() == 0) {
+            header('Location: ' . BASEURL . '/auth/login');
+        }
         $data = [
             'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
         ];
