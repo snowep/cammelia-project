@@ -64,7 +64,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown profile-dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="javascript:void(0)" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="<?= BASEURL ?>/assets/images/users/profile-pic.jpg" alt="user" class="profile-pic rounded-circle" width="30">
+                                <img src="<?= BASEURL ?>/assets/images/users/profile-2.jpg" alt="user" class="profile-pic rounded-circle" width="30" height="30" style="object-fit: cover">
                                 <div class="d-none d-md-flex">
                                     <span class="ms-2">Hello,
                                         <span class="text-dark fw-bold">
@@ -86,7 +86,7 @@
                                             <h3 class="card-title mb-0">User Profile</h3>
                                         </div>
                                         <div class="d-flex align-items-center mt-4 pt-3 pb-4 border-bottom">
-                                            <img src="<?= BASEURL ?>/assets/images/users/profile-pic.jpg" alt="user-profile" width="90" class="rounded-circle">
+                                            <img src="<?= BASEURL ?>/assets/images/users/profile-2.jpg" alt="user-profile" width="90" height="90" class="rounded-circle" style="object-fit: cover">
                                             <div class="ms-4">
                                                 <h4 class="mb-0"><?= $data['info']['fullname'] ?></h4>
                                                 <span class="text-muted"><?= ucfirst($_SESSION['role']) ?></span>
@@ -100,7 +100,7 @@
                                     <li class="p-30 pt-0">
                                         <div class="message-center message-body position-relative ps-container ps-theme default" style="height: 210px;">
                                             <!-- Message -->
-                                            <a href="#" class="message-item px-2 d-flex align-items-center border-bottom py-3">
+                                            <a href="<?= BASEURL ?>/user/profile" class="message-item px-2 d-flex align-items-center border-bottom py-3">
                                                 <span class="btn btn-light0info btn-rounded lg text-info">
                                                     <i class="feather-icon" data-feather="user"></i>
                                                 </span>
