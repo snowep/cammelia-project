@@ -24,6 +24,11 @@ class UserController extends Controller {
 
     // show list of user
     public function list() {
+
+        if ($_SESSION["role"] == 'user') {
+            echo 'forbidden';
+            die();
+        }
         $data = [
             'title' => 'List of User',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
@@ -40,6 +45,10 @@ class UserController extends Controller {
 
     // show detail of user
     public function details($id) {
+        if ($_SESSION["role"] == 'user') {
+            echo 'forbidden';
+            die();
+        }
         $data = [
             'title' => 'User Details',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
@@ -53,6 +62,10 @@ class UserController extends Controller {
 
     // delete user
     public function delete($id) {
+        if ($_SESSION["role"] == 'user') {
+            echo 'forbidden';
+            die();
+        }
         if ($this->model('User')->deleteUser($id) > 0) {
             Flasher::setFlash(' berhasil ', ' dihapus ', 'success');
             header('Location: ' . BASEURL . '/user/list');
@@ -68,6 +81,10 @@ class UserController extends Controller {
     }
     // edit user
     public function edit() {
+        if ($_SESSION["role"] == 'user') {
+            echo 'forbidden';
+            die();
+        }
         if ($this->model('User')->editUser($_POST) > 0) {
             Flasher::setFlash(' berhasil ', ' diubah ', 'success');
             if ($this->model('User')->editUserInfo($_POST) > 0) {
@@ -86,5 +103,21 @@ class UserController extends Controller {
     //get user by  username
     public function getUserByUsername() {
         echo json_encode($this->model('User')->getUserByUsername($_SESSION['username']));
+    }
+
+
+
+
+
+
+
+    public function profile() {
+        $data = [
+            'title' => 'Profile',
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
+        ];
+        $this->view('templates/header', $data);
+        $this->view('user/profile', $data);
+        $this->view('templates/footer');
     }
 }
