@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col-lg-4 col-xlg-3 col-md-5">
             <div class="card">
                 <div class="card-body">
                     <center class="mt-4">
@@ -15,9 +15,51 @@
                 <div class="card-body">
                     <small class="text-muted">Email Address</small>
                     <h6><?= $data['info']['email'] ?></h6>
-                    <a href="<?= BASEURL ?>/user/settings" class="btn btn-circle btn-secondary">
-                        <i class="feather-icon fs-6 align-items-center justify-content-center" data-feather="settings"></i>
-                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-xlg-9 col-md-7">
+            <div class="card overflow-hidden">
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a href="#user-settings" class="nav-link active" id="pills-setting-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-setting" aria-selected="true">Setting</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="user-settings" role="tabpanel" aria-labelledby="pills-setting-tab">
+                        <div class="card-body">
+                            <form action="#" method="post" class="form-horizontal form-material">
+                                <div class="mb-3">
+                                    <label class="col-md-12">Full Name</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control form-control-line" id="user-fullnameEdit" name="user-fullnameInputEdit">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="example-email" class="col-md-12">Email</label>
+                                    <div class="col-md-12">
+                                        <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="user-emailInputEdit" id="user-emailInputEdit">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="col-md-12">Password</label>
+                                    <div class="col-md-12">
+                                        <input type="password" class="form-control form-control-line" name="user-passwordInputEdit" id="user-passwordInputEdit">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="workAt">Work at</label>
+                                    <select name="workAtInputEdit" id="workAtInput" class="form-select mr-sm-2 js-example-basic-single">
+                                        <?php
+                                        foreach ($data['schools'] as $s) {
+                                            echo '<option value="' . $s['npsn'] . '">' . $s['name'] . '</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

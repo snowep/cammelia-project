@@ -114,7 +114,8 @@ class UserController extends Controller {
     public function profile() {
         $data = [
             'title' => 'Profile',
-            'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
+            'schools' => $this->model('School')->getAllSchools()
         ];
         $this->view('templates/header', $data);
         $this->view('user/profile', $data);

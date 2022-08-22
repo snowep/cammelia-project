@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= BASEURL ?>/dist/css/style.min.css" rel="stylesheet">
+
+    <script src="<?= BASEURL ?>/assets/libs/select2/select2.min.js"></script>
     <link href="<?= BASEURL ?>/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="<?= BASEURL ?>/assets/libs/apexcharts/dist/apexcharts.css" rel="stylesheet">
     <link href="<?= BASEURL ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
@@ -13,7 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/flexy-bootstrap/package/assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="<?= BASEURL ?>/dist/css/style.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Different Template -->
     <script src="<?= BASEURL ?>/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <title><?= ucfirst($_SESSION['role']) ?> | <?= $data['title'] ?></title>
@@ -36,7 +38,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header" data-logobg="skin6">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
-                        <i class="ri-close-line ri-menu-2-line fs-6"></i>
+                        <i data-feather="menu" class="fs-6"></i>
                     </a>
                     <!-- Logo icon -->
                     <a class="navbar-brand" href="<?= BASEURL ?>">

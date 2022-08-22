@@ -35,6 +35,12 @@
 <script src="<?= BASEURL ?>/dist/js/pages/datatable/datatable-basic.init.js"></script>
 
 
+<script src="<?= BASEURL ?>/assets/libs/select2/select2.full.min.js"></script>
+<script src="<?= BASEURL ?>/assets/libs/select2/select2.min.js"></script>
+<script src="<?= BASEURL ?>/dist/js/pages/select2/select2.init.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script src="<?= BASEURL ?>/dist/js/script.js"></script>
 <script>
     $(function() {

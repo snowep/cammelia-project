@@ -7,6 +7,7 @@ class App {
 
     public function __construct() {
         $url = $this->parseURL();
+        date_default_timezone_set('Asia/Hong_Kong');
 
         // Check if controller exists
         if (isset($url[0])) {

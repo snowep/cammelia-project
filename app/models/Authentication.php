@@ -3,6 +3,7 @@
 class Authentication extends Controller {
     private $table = 'users';
     private $table_info = 'users_info';
+    private $table_log = 'users_change_log';
     private $db;
 
     public function __construct() {
@@ -53,10 +54,18 @@ class Authentication extends Controller {
             //insert to user_info table
             $this->db->query('INSERT INTO ' . $this->table_info . ' VALUES (:id, "",:fullname, :email)');
             //get last inserted row id
-            $this->db->bind(':id', $this->db->lastInsertId());
+            $id = $this->db->lastInsertId();
+            $this->db->bind(':id', $id);
             $this->db->bind(':fullname', $data['fullnameInput']);
             $this->db->bind(':email', $data['emailInput']);
             $this->db->execute();
+
+            $this->db->query('INSERT INTO ' . $this->table_log . ' VALUES ("", :user_id, :action, :user_id, "", :date)');
+            $this->db->bind(':user_id', $id);
+            $this->db->bind(':action', 'register');
+            $this->db->bind(':date', date('Y-m-d H:i:s'));
+            $this->db->execute();
+
             return $this->db->rowCount();
 
             Flasher::setFlash('Berhasil', 'ditambahkan', 'success');
