@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= BASEURL ?>/dist/css/style.min.css" rel="stylesheet">
 
-    <script src="<?= BASEURL ?>/assets/libs/select2/select2.min.js"></script>
+    <script src="<?= BASEURL ?>/assets/libs/select2/select2.min.css"></script>
     <link href="<?= BASEURL ?>/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="<?= BASEURL ?>/assets/libs/apexcharts/dist/apexcharts.css" rel="stylesheet">
     <link href="<?= BASEURL ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />

@@ -48,14 +48,19 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="workAt">Work at</label>
-                                    <select name="workAtInputEdit" id="workAtInput" class="form-select mr-sm-2 js-example-basic-single">
+                                    <label for="workAt" class="col-md-12">Work at</label>
+                                    <select name="workAtInputEdit" id="workAtInput" class="select2 form-control custom-select">
                                         <?php
                                         foreach ($data['schools'] as $s) {
                                             echo '<option value="' . $s['npsn'] . '">' . $s['name'] . '</option>';
                                         }
                                         ?>
                                     </select>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-success">Update Profile</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
