@@ -11,8 +11,8 @@ class App {
 
         // Check if controller exists
         if (isset($url[0])) {
-            if (file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
-                $this->controller = $url[0] . 'Controller';
+            if (file_exists('../app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
+                $this->controller = ucfirst($url[0]) . 'Controller';
                 unset($url[0]);
             } else {
                 $this->controller = 'errorController';
