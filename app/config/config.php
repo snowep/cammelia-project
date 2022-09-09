@@ -1,7 +1,7 @@
 <?php
 
-define('BASEURL', 'https://9c5d-103-144-132-4.ap.ngrok.io/cammelia-project/public');
-define('BASE_FILE_DIR', 'https://9c5d-103-144-132-4.ap.ngrok.io/cammelia-project/public/uploads/reports/');
+define('BASEURL', 'http://project-simpeda.online/public');
+define('BASE_FILE_DIR', 'http://project-simpeda.online/public/uploads/reports/');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'n1605519');
