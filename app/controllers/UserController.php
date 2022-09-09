@@ -17,9 +17,14 @@ class UserController extends Controller {
             'info' => $this->model('User')->getUserByUsername($_SESSION['username'])
         ];
 
-        $this->view('templates/header', $data);
-        $this->view('user/index', $data);
-        $this->view('templates/footer');
+        // $this->view('templates/header', $data);
+        // $this->view('user/index', $data);
+        // $this->view('templates/footer');
+        //if user == user and npsn is null redirect to profile
+        if ($data['info']['level'] == 'user' && $data['info']['npsn'] == null) {
+            header('Location: ' . BASEURL . '/user/profile');
+        }
+        header('Location: ' . BASEURL . '/report/list');
     }
 
     // show list of user
@@ -115,10 +120,21 @@ class UserController extends Controller {
         $data = [
             'title' => 'Profile',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
-            'schools' => $this->model('School')->getAllSchools()
+            'schools' => $this->model('School')->getAllSchools(),
         ];
         $this->view('templates/header', $data);
         $this->view('user/profile', $data);
         $this->view('templates/footer');
+    }
+    public function editProfile() {
+        if ($this->model('User')->editProfiles($_POST) > 0) {
+            Flasher::setFlash(' berhasil ', ' diubah ', 'success');
+            header('Location: ' . BASEURL . '/user/profile');
+            exit;
+        } else {
+            Flasher::setFlash(' gagal ', ' diubah ', 'danger');
+            header('Location: ' . BASEURL . '/user/profile');
+            exit;
+        }
     }
 }

@@ -127,13 +127,13 @@
         </header>
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
-            <div class="scroll-sidebar" data-sidebarbg="skin6">
+            <div class="" data-sidebarbg="skin6">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link sidebar-link" href="<?= BASEURL ?>/user/dashboard" aria-expanded="false">
-                                <i data-feather="pie-chart" class="feather-icon"></i>
+                                <i data-feather="pie-chart" class="feather-icon" style="stroke: #ff0000;"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
@@ -147,20 +147,20 @@
                         ?>
                             <li class="sidebar-item">
                                 <a href="<?= BASEURL ?>/user/list" class="sidebar-link">
-                                    <i data-feather="circle" class="feather-icon"></i>
+                                    <i data-feather="circle" class="feather-icon" style="stroke: #ff0000;"></i>
                                     <span class="hide-menu">User</span>
                                 </a>
                             </li>
                         <?php } ?>
                         <li class="sidebar-item">
                             <a href="<?= BASEURL ?>/school/list" class="sidebar-link">
-                                <i data-feather="triangle" class="feather-icon"></i>
+                                <i data-feather="triangle" class="feather-icon" style="stroke: #ff0000;"></i>
                                 <span class="hide-menu">School</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="<?= BASEURL ?>/report/list" class="sidebar-link">
-                                <i data-feather="square" class="feather-icon"></i>
+                                <i data-feather="square" class="feather-icon" style="stroke: #ff0000;"></i>
                                 <span class="hide-menu">Report</span>
                             </a>
                         </li>

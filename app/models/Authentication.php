@@ -11,7 +11,7 @@ class Authentication extends Controller {
     }
 
     public function authCheck($data) {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE username=:username AND password=:password');
+        $this->db->query('SELECT * FROM ' . $this->table . ' INNER JOIN ' . $this->table_info . ' ON ' . $this->table_info . '.user_id = ' . $this->table . '.id WHERE username=:username AND password=:password');
         $this->db->bind('username', $data['username']);
         $this->db->bind('password', $data['password']);
         $this->db->execute();
@@ -23,6 +23,7 @@ class Authentication extends Controller {
             $_SESSION['username'] = $row['username'];
             $_SESSION['role'] = $row['level'];
             $_SESSION['id'] = $row['id'];
+            $_SESSION['npsn'] = $row['school_npsn'];
             header('Location: ' . BASEURL . '/user/dashboard');
             exit;
         } else {
@@ -52,7 +53,7 @@ class Authentication extends Controller {
             $this->db->bind(':status', 'pending');
             $this->db->execute();
             //insert to user_info table
-            $this->db->query('INSERT INTO ' . $this->table_info . ' VALUES (:id, "",:fullname, :email)');
+            $this->db->query('INSERT INTO ' . $this->table_info . ' (user_id, fullname, email) VALUES (:id,:fullname, :email)');
             //get last inserted row id
             $id = $this->db->lastInsertId();
             $this->db->bind(':id', $id);

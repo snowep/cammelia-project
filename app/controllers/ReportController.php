@@ -38,6 +38,7 @@ class ReportController extends Controller {
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'reports' => $this->model('Report')->getReportById($id)
         ];
+
         $this->view('templates/header', $data);
         $this->view('report/details', $data);
         $this->view('templates/footer');

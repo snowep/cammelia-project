@@ -117,6 +117,7 @@
                             <?= ucfirst($data['users']['status']) ?>
                         </span>
                     </h6>
+                    <h5><?= $data['users']['name'] ?></h5>
                 </div>
             </div>
         </div>

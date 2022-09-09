@@ -82,7 +82,7 @@ $(function () {
 		const npsn = $(this).data("npsn");
 
 		$.ajax({
-			url: "https://0606-103-144-132-173.ap.ngrok.io/cammelia-project/public/school/getEdit",
+			url: "hhttps://9c5d-103-144-132-4.ap.ngrok.io//cammelia-project/public/school/getEdit",
 			data: { npsn: npsn },
 			method: "POST",
 			dataType: "json",
@@ -99,7 +99,7 @@ $(function () {
 		const id = $(this).data("id");
 
 		$.ajax({
-			url: "https://0606-103-144-132-173.ap.ngrok.io/cammelia-project/public/user/getEdit",
+			url: "https://9c5d-103-144-132-4.ap.ngrok.io/cammelia-project/public/user/getEdit",
 			data: { id: id },
 			method: "POST",
 			dataType: "json",
@@ -119,7 +119,7 @@ $(function () {
 		const id = $(this).data("id");
 
 		$.ajax({
-			url: "https://0606-103-144-132-173.ap.ngrok.io/cammelia-project/public/report/getEdit",
+			url: "https://9c5d-103-144-132-4.ap.ngrok.io/cammelia-project/public/report/getEdit",
 			data: { id: id },
 			method: "POST",
 			dataType: "json",
@@ -134,7 +134,7 @@ $(function () {
 	});
 
 	$.ajax({
-		url: "https://0606-103-144-132-173.ap.ngrok.io/cammelia-project/public/user/getUserByUsername",
+		url: "https://9c5d-103-144-132-4.ap.ngrok.io/cammelia-project/public/user/getUserByUsername",
 		dataType: "json",
 		success: function (data) {
 			//if data.level == admin

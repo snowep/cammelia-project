@@ -25,7 +25,8 @@ class SchoolController extends Controller {
         $data = [
             'title' => 'School Details',
             'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
-            'schools' => $this->model('School')->getSchoolsByNPSN($npsn)
+            'schools' => $this->model('School')->getSchoolsByNPSN($npsn),
+            'reports' => $this->model('Report')->getAllReportsBySchool($npsn),
         ];
         $this->view('templates/header', $data);
         $this->view('school/details', $data);

@@ -72,7 +72,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
+        <div class="col-5">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">
@@ -81,6 +81,50 @@
                     <h6 class="card-subtitle">
                         <?= $data['schools']['address']; ?>
                     </h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-md-flex align-items center">
+                        <div>
+                            <h3 class="card-title">
+                                All Report
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="table-responsive mt-4">
+                        <table class="table mb-0 text-nowrap varient-table align-middle fs-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="px-0 text-muted">No.</th>
+                                    <th scope="col" class="px-0 text-muted">File Name</th>
+                                    <th scope="col" class="px-0 text-muted">Upload Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                foreach ($data['reports'] as $report) {
+                                ?>
+                                    <tr>
+                                        <td class="px-0">
+                                            <?= $i; ?>
+                                        </td>
+                                        <td class="px-0">
+                                            <h6 class="mb-0 fw-bold"><a href="<?= BASEURL ?>/report/details/<?= $report['id'] ?>"><?= $report['file_name']; ?></a></h6>
+                                            <span class="text-muted fs-9"><?= $report['fullname']; ?></span>
+                                        </td>
+                                        <td class="px-0"><?= $report['upload_time']; ?></td>
+                                    </tr>
+                                <?php
+                                    $i++;
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
