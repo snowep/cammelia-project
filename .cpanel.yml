@@ -1,0 +1,9 @@
+# @format
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/n1605519/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH
