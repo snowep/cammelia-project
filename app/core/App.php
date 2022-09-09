@@ -1,19 +1,24 @@
 <?php
 
 class App {
-    protected $controller = 'HomeController';
+    protected $controller = 'AuthController';
     protected $method = 'index';
     protected $params = [];
 
     public function __construct() {
         $url = $this->parseURL();
+        date_default_timezone_set('Asia/Hong_Kong');
 
         // Check if controller exists
         if (isset($url[0])) {
             if (file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
                 $this->controller = $url[0] . 'Controller';
                 unset($url[0]);
+            } else {
+                $this->controller = 'errorController';
             }
+        } else {
+            echo 'yeah';
         }
         // Require the controller
         require_once '../app/controllers/' . $this->controller . '.php';
@@ -24,6 +29,8 @@ class App {
             if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
                 unset($url[1]);
+            } else {
+                $this->method = 'index';
             }
         }
 

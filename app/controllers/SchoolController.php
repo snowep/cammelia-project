@@ -1,21 +1,32 @@
 <?php
 class SchoolController extends Controller {
+    public function __construct() {
+        if ($this->model('Authentication')->isLoggedIn() == 0) {
+            header('Location: ' . BASEURL . '/auth/login');
+        }
+    }
+
     public function index() {
+        $this->redirect('school', 'list');
+    }
+
+    public function list() {
         $data = [
-            'title' => 'Sekolah',
-            'name' => $this->model('User')->getUser(),
+            'title' => 'List of School',
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
             'schools' => $this->model('School')->getAllSchools()
         ];
         $this->view('templates/header', $data);
-        $this->view('school/index', $data);
+        $this->view('school/list', $data);
         $this->view('templates/footer');
     }
 
     public function details($npsn) {
         $data = [
-            'title' => 'Detail Sekolah',
-            'name' => $this->model('User')->getUser(),
-            'schools' => $this->model('School')->getSchoolsByNPSN($npsn)
+            'title' => 'School Details',
+            'info' => $this->model('User')->getUserByUsername($_SESSION['username']),
+            'schools' => $this->model('School')->getSchoolsByNPSN($npsn),
+            'reports' => $this->model('Report')->getAllReportsBySchool($npsn),
         ];
         $this->view('templates/header', $data);
         $this->view('school/details', $data);
